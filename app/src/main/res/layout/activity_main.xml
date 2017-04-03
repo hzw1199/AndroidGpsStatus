@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.adam.app.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
+        <com.adam.gpsstatus.GpsStatusTextView
+            android:id="@+id/gpsText"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="GPS"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            app:colorClosed="@color/gps_icon_red"
+            app:colorFixed="@color/gps_icon_green"
+            app:colorUnFixed="@color/gps_icon_yellow"/>
+
+        <com.adam.gpsstatus.GpsStatusImageView
+            android:id="@+id/gpsImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:drawable0="@drawable/ic_gps_0_24dp"
+            app:drawable1="@drawable/ic_gps_1_24dp"
+            app:drawable2="@drawable/ic_gps_2_24dp"
+            app:drawable3="@drawable/ic_gps_3_24dp"
+            app:thr_1_2="4"
+            app:thr_2_3="7"/>
+    </LinearLayout>
+
+</RelativeLayout>

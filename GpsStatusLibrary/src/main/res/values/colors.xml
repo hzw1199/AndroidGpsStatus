@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gps_icon_green">#4CAF50</color>
+    <color name="gps_icon_red">#F44336</color>
+    <color name="gps_icon_yellow">#f4b400</color>
+</resources>

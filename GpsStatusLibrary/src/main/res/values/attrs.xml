@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GpsStatusImageView">
+        <attr name="drawable0" format="reference" />
+        <attr name="drawable1" format="reference" />
+        <attr name="drawable2" format="reference" />
+        <attr name="drawable3" format="reference" />
+        <attr name="thr_1_2" format="integer" />
+        <attr name="thr_2_3" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="GpsStatusTextView">
+        <attr name="colorClosed" format="color" />
+        <attr name="colorFixed" format="color" />
+        <attr name="colorUnFixed" format="color" />
+    </declare-styleable>
+
+</resources>
