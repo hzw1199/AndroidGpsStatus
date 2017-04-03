@@ -1,7 +1,7 @@
 # GPS Status
 [![](https://jitpack.io/v/hzw1199/AndroidGpsStatus.svg)](https://jitpack.io/#hzw1199/AndroidGpsStatus)
 
-![](/media/anglerM4B30Xwuzongheng04032017135422.gif)
+![](/media/anglerM4B30Xwuzongheng04042017015425.gif)
 
 # Download
 在project的build.gradle中加入以下语句:  

@@ -16,9 +16,9 @@
         <com.adam.gpsstatus.GpsStatusTextView
             android:id="@+id/gpsText"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="96dp"
             android:text="GPS"
-            android:textSize="24sp"
+            android:textSize="48sp"
             android:textStyle="bold"
             android:gravity="center_vertical"
             app:colorClosed="@color/gps_icon_red"
@@ -27,8 +27,8 @@
 
         <com.adam.gpsstatus.GpsStatusImageView
             android:id="@+id/gpsImage"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             app:drawable0="@drawable/ic_gps_0_24dp"
             app:drawable1="@drawable/ic_gps_1_24dp"
             app:drawable2="@drawable/ic_gps_2_24dp"

@@ -3,7 +3,7 @@
 
 [中文看这里](/READMEcn.md)  
 
-![](/media/anglerM4B30Xwuzongheng04032017135422.gif)
+![](/media/anglerM4B30Xwuzongheng04042017015425.gif)
 
 # Download
 Add it in your build.gradle at the end of repositories:  
