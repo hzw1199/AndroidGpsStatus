@@ -55,13 +55,11 @@ dependencies {
 ```
 * Configure xml attributes to set the text color of GPS status: closed, fixed, unfixed  
 
-```xml
-<declare-styleable name="GpsStatusTextView">
-    <attr name="colorClosed" format="color" />
-    <attr name="colorFixed" format="color" />
-    <attr name="colorUnFixed" format="color" />
-</declare-styleable>
-```
+| Attribute      | format        | describe  |
+| :---------: | :-------------: |:-------------:|
+| colorClosed|color|text color while GPS is closed|
+| colorFixed |color|text color while GPS is fixed|
+| colorUnFixed |color|text color while GPS is searching satellites|
 
 ### GpsStatusImageView
 
@@ -80,21 +78,19 @@ dependencies {
     app:thr_2_3="7" />
 ```
 * Configure xml attributes to set the drawable of GPS signal strength: closed, weak, medium, strong  
-* Configure xml attributes to set GPS signal strength weak - medium, medium - strong through the number of satellite thresholds, default thresholds are 4 and 7  
+* Configure xml attributes to set GPS signal strength weak - medium, medium - strong through the thresholds of satellite number, default thresholds are 4 and 7  
 
-```xml
-<declare-styleable name="GpsStatusImageView">
-    <attr name="drawable0" format="reference" />
-    <attr name="drawable1" format="reference" />
-    <attr name="drawable2" format="reference" />
-    <attr name="drawable3" format="reference" />
-    <attr name="thr_1_2" format="integer" />
-    <attr name="thr_2_3" format="integer" />
-</declare-styleable>
-```
+| Attribute      | format        | describe  | default |
+| :---------: | :-------------: |:-------------:|:-------------:|
+| drawable0 | reference |drawable while GPS closed| ic_gps_0_24dp|
+| drawable1 | reference |drawable while GPS signal is weak| ic_gps_1_24dp|
+| drawable2 | reference |drawable while GPS signal is medium| ic_gps_2_24dp|
+| drawable3 | reference |drawable while GPS signal is strong| ic_gps_3_24dp|
+| thr_1_2 | integer |threshold of satellite number from weak to medium|4|
+| thr_2_3 | integer |threshold of satellite number from medium to strong|7|
 
 ## Set Up
-Two widgets only need to be defined in the layout file, but still need to do the following in the code:
+You only need to define ```GpsStatusTextView``` or ```GpsStatusImageView``` in layout, but still need to do the following in the code:
 
 * Permission  
 Add permission in AndroidManifest.xml  
@@ -107,23 +103,21 @@ Add permission in AndroidManifest.xml
 
 ```java
 GpsStatusProxy proxy;
-LocationManager locationManager;
 ```
 
 * Initialization  
-Make sure to have ACCESS_FINE_LOCATION permission before initialization
+Make sure to have ```ACCESS_FINE_LOCATION``` permission before initialization
 
 ```java
 proxy = GpsStatusProxy.getInstance(getApplicationContext());
-locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
 proxy.register();
-locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, listener);
 ```
 
-* Call GpsStatusProxy.notifyLocation(Location) after location callback  
+* Call ```GpsStatusProxy.notifyLocation(android.location.Location)``` in location callback, for example:  
 
 ```java
+LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, listener);
 LocationListener listener = new LocationListener() {
     @Override
     public void onLocationChanged(Location location) {
@@ -150,7 +144,6 @@ LocationListener listener = new LocationListener() {
 * Destroy  
   
 ```java
-locationManager.removeUpdates(listener);
 proxy.unRegister();
 ```
 

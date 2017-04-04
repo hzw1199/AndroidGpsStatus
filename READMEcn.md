@@ -53,13 +53,11 @@ dependencies {
 ```
 * 支持在xml中设置GPS关闭、定位成功、正在定位三种状态下的字体颜色  
 
-```xml
-<declare-styleable name="GpsStatusTextView">
-    <attr name="colorClosed" format="color" />
-    <attr name="colorFixed" format="color" />
-    <attr name="colorUnFixed" format="color" />
-</declare-styleable>
-```
+| Attribute      | format        | describe  | default |
+| :---------: | :-------------: |:-------------:|:-------------:|
+| colorClosed|color|GPS关闭时字体颜色|#F44336|
+| colorFixed |color|GPS定位成功时字体颜色|#4CAF50|
+| colorUnFixed |color|GPS正在定位时字体颜色|#f4b400|
 
 ### GpsStatusImageView
 
@@ -80,16 +78,14 @@ dependencies {
 * 支持在xml中设置GPS关闭以及GPS信号强度弱、中、强状态下的图片资源  
 * 支持在xml中设置GPS信号强度弱-中、中-强状态的卫星数量阈值，默认为4、7  
 
-```xml
-<declare-styleable name="GpsStatusImageView">
-    <attr name="drawable0" format="reference" />
-    <attr name="drawable1" format="reference" />
-    <attr name="drawable2" format="reference" />
-    <attr name="drawable3" format="reference" />
-    <attr name="thr_1_2" format="integer" />
-    <attr name="thr_2_3" format="integer" />
-</declare-styleable>
-```
+| Attribute      | format        | describe  | default |
+| :---------: | :-------------: |:-------------:|:-------------:|
+| drawable0 | reference |GPS关闭时图标资源| ic_gps_0_24dp|
+| drawable1 | reference |GPS信号强度弱时图标资源| ic_gps_1_24dp|
+| drawable2 | reference |GPS信号强度中等时图标资源| ic_gps_2_24dp|
+| drawable3 | reference |GPS信号强度强时图标资源| ic_gps_3_24dp|
+| thr_1_2 | integer |GPS信号强度从弱到中的卫星数量阈值|4|
+| thr_2_3 | integer |GPS信号强度从中到强的卫星数量阈值|7|
 
 ## Set Up
 两个控件只需在布局文件中定义，但是在代码中仍然需要进行如下操作：
@@ -105,23 +101,21 @@ dependencies {
 
 ```java
 GpsStatusProxy proxy;
-LocationManager locationManager;
 ```
 
 * 初始化  
-在确认拥有ACCESS_FINE_LOCATION权限后进行初始化
+在确认拥有```ACCESS_FINE_LOCATION```权限后进行初始化
 
 ```java
 proxy = GpsStatusProxy.getInstance(getApplicationContext());
-locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
 proxy.register();
-locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, listener);
 ```
 
-* 每次定位回调后调用GpsStatusProxy.notifyLocation(Location)
+* 每次定位回调后调用```GpsStatusProxy.notifyLocation(android.location.Location)```，例如：  
 
 ```java
+LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, listener);
 LocationListener listener = new LocationListener() {
     @Override
     public void onLocationChanged(Location location) {
@@ -148,7 +142,6 @@ LocationListener listener = new LocationListener() {
 * 销毁  
   
 ```java
-locationManager.removeUpdates(listener);
 proxy.unRegister();
 ```
 
