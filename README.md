@@ -55,11 +55,11 @@ dependencies {
 ```
 * Configure xml attributes to set the text color of GPS status: closed, fixed, unfixed  
 
-| Attribute      | format        | describe  |
-| :---------: | :-------------: |:-------------:|
-| colorClosed|color|text color while GPS is closed|
-| colorFixed |color|text color while GPS is fixed|
-| colorUnFixed |color|text color while GPS is searching satellites|
+| Attribute      | format        | describe  | default |
+| :---------: | :-------------: |:-------------:|:-------------:|
+| colorClosed|color|text color while GPS is closed|#F44336|
+| colorFixed |color|text color while GPS is fixed|#4CAF50|
+| colorUnFixed |color|text color while GPS is searching satellites|#F4B400|
 
 ### GpsStatusImageView
 

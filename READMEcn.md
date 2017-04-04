@@ -57,7 +57,7 @@ dependencies {
 | :---------: | :-------------: |:-------------:|:-------------:|
 | colorClosed|color|GPS关闭时字体颜色|#F44336|
 | colorFixed |color|GPS定位成功时字体颜色|#4CAF50|
-| colorUnFixed |color|GPS正在定位时字体颜色|#f4b400|
+| colorUnFixed |color|GPS正在定位时字体颜色|#F4B400 |
 
 ### GpsStatusImageView
 
