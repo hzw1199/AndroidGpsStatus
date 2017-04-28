@@ -4,7 +4,7 @@ group='com.github.hzw1199'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25

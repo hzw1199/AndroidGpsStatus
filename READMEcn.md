@@ -19,7 +19,7 @@ allprojects {
 
 ```
 dependencies {
-    compile 'com.github.hzw1199:AndroidGpsStatus:1.0'
+    compile 'com.github.hzw1199:AndroidGpsStatus:1.1'
 }
 ```
 # Features
