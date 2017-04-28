@@ -57,7 +57,7 @@ public class GpsStatusProxy {
     /**
      * Release GPS Status Listener
      */
-    public void unRegister() {
+    public synchronized void unRegister() {
         if (locationManager == null)
             return;
         locationManager.removeGpsStatusListener(listener);
@@ -172,7 +172,12 @@ public class GpsStatusProxy {
                     if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                         return;
                     }
-                    GpsStatus gpsStatus = locationManager.getGpsStatus(null);
+                    GpsStatus gpsStatus = null;
+                    synchronized (this){
+                        if (locationManager != null){
+                            gpsStatus = locationManager.getGpsStatus(null);
+                        }
+                    }
                     if (gpsStatus != null) {
 //                        GpsStatus gpsStatus=mAMapLocationManager.getGpsStatus(null);
                         //获取卫星颗数的默认最大值
